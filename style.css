@@ -1,0 +1,256 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f5f4f0;
+  --fg: #111110;
+  --muted: #888882;
+  --border: rgba(0,0,0,0.1);
+  --sidebar-w: 260px;
+  --mono: 'IBM Plex Mono', monospace;
+  --sans: 'IBM Plex Sans', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  font-weight: 300;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* --- Sidebar --- */
+
+aside {
+  width: var(--sidebar-w);
+  flex-shrink: 0;
+  position: fixed; top: 0; left: 0; bottom: 0;
+  border-right: 1px solid var(--border);
+  padding: 2.5rem 2rem;
+  display: flex; flex-direction: column;
+  background: var(--bg);
+  overflow-y: auto;
+}
+
+.sidebar-top { flex: 1; }
+
+.avatar {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--fg); margin-bottom: 1.5rem;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--bg); font-family: var(--mono); font-size: 0.7rem;
+  user-select: none;
+}
+
+.sidebar-name {
+  font-family: var(--mono); font-size: 0.9rem;
+  letter-spacing: -0.01em; margin-bottom: 0.25rem;
+}
+
+.sidebar-role {
+  font-size: 0.75rem; color: var(--muted); margin-bottom: 2.5rem;
+  font-family: var(--mono);
+}
+
+.sidebar-nav { list-style: none; margin-bottom: 2.5rem; }
+.sidebar-nav li { margin-bottom: 0.1rem; }
+.sidebar-nav a {
+  display: block; padding: 0.4rem 0;
+  font-family: var(--mono); font-size: 0.75rem;
+  color: var(--muted); text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: color 0.15s;
+  border-radius: 2px;
+}
+.sidebar-nav a:hover,
+.sidebar-nav a.active { color: var(--fg); }
+.sidebar-nav a::before { content: '→ '; opacity: 0; transition: opacity 0.15s; }
+.sidebar-nav a:hover::before,
+.sidebar-nav a.active::before { opacity: 1; }
+
+.sidebar-nav a:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 3px;
+}
+
+.sidebar-divider {
+  height: 1px; background: var(--border); margin-bottom: 2rem;
+}
+
+.sidebar-status {
+  font-family: var(--mono); font-size: 0.7rem; color: var(--muted);
+  line-height: 1.6; margin-bottom: 2rem;
+}
+
+.status-dot {
+  display: inline-block; width: 7px; height: 7px;
+  border-radius: 50%; background: #4caf50; margin-right: 0.4rem;
+  vertical-align: middle;
+  box-shadow: 0 0 0 2px rgba(76,175,80,0.2);
+}
+
+.sidebar-socials { display: flex; gap: 0.75rem; }
+.sidebar-socials a {
+  font-family: var(--mono); font-size: 0.7rem;
+  color: var(--muted); text-decoration: none;
+  transition: color 0.15s;
+  border-radius: 2px;
+}
+.sidebar-socials a:hover { color: var(--fg); }
+.sidebar-socials a:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 3px;
+}
+
+/* --- Main content --- */
+
+main {
+  margin-left: var(--sidebar-w);
+  flex: 1;
+  padding: 5rem 4rem;
+  max-width: 780px;
+}
+
+.section { margin-bottom: 6rem; }
+
+.section-tag {
+  font-family: var(--mono); font-size: 0.7rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 2rem;
+}
+
+.intro-text {
+  font-size: 1.4rem; line-height: 1.65;
+  letter-spacing: -0.01em; max-width: 42ch;
+  font-weight: 300;
+}
+
+.intro-text strong { font-weight: 400; }
+
+/* --- Projects --- */
+
+.project-list { display: flex; flex-direction: column; gap: 0; }
+
+.project {
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: start;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--border);
+  transition: padding-left 0.2s;
+}
+.project:first-child { border-top: 1px solid var(--border); }
+.project:hover { padding-left: 0.5rem; }
+
+.project-name {
+  font-size: 1.05rem; font-weight: 400;
+  margin-bottom: 0.35rem; letter-spacing: -0.01em;
+}
+
+.project-desc {
+  font-size: 0.82rem; color: var(--muted);
+  max-width: 46ch; line-height: 1.55;
+}
+
+.project-year {
+  font-family: var(--mono); font-size: 0.75rem;
+  color: var(--muted); padding-top: 0.15rem;
+}
+
+/* --- Experience & Education --- */
+
+.exp-list { display: flex; flex-direction: column; gap: 2rem; }
+
+.exp-item { display: grid; grid-template-columns: 120px 1fr; gap: 1.5rem; }
+
+.exp-period {
+  font-family: var(--mono); font-size: 0.7rem;
+  color: var(--muted); padding-top: 0.2rem;
+  line-height: 1.5;
+}
+
+.exp-role { font-size: 0.9rem; font-weight: 400; margin-bottom: 0.2rem; }
+.exp-company { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.5rem; }
+.exp-notes { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+
+.edu-section { margin-top: 3.5rem; }
+.edu-section .section-tag { margin-bottom: 2rem; }
+
+/* --- Contact --- */
+
+.contact-block {
+  display: flex; flex-direction: column; gap: 0.5rem;
+}
+
+.contact-row {
+  display: flex; align-items: center; gap: 1rem;
+  font-family: var(--mono); font-size: 0.8rem;
+}
+
+.contact-label { color: var(--muted); min-width: 70px; }
+
+.contact-value {
+  color: var(--fg); text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s;
+}
+.contact-value:hover { border-color: var(--fg); }
+.contact-value:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* --- Mobile --- */
+
+@media (max-width: 800px) {
+  body { flex-direction: column; }
+
+  aside {
+    position: static;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 1.5rem;
+    flex-direction: column;
+    gap: 0;
+    overflow-y: visible;
+  }
+
+  .sidebar-top { display: flex; flex-direction: column; width: 100%; }
+
+  .avatar { margin-bottom: 0.75rem; }
+
+  .sidebar-name { margin-bottom: 0.1rem; }
+  .sidebar-role { margin-bottom: 1.25rem; }
+
+  .sidebar-nav {
+    display: flex; flex-direction: row; flex-wrap: wrap;
+    gap: 0; margin-bottom: 1rem;
+  }
+  .sidebar-nav li { margin-bottom: 0; }
+  .sidebar-nav a {
+    padding: 0.35rem 0.6rem 0.35rem 0;
+    margin-right: 0.25rem;
+  }
+  .sidebar-nav a::before { display: none; }
+
+  .sidebar-divider { margin-bottom: 0.75rem; }
+
+  .sidebar-status { margin-bottom: 0.75rem; }
+
+  .sidebar-socials { margin-bottom: 0; }
+
+  main {
+    margin-left: 0;
+    padding: 2rem 1.5rem;
+    max-width: 100%;
+  }
+
+  .exp-item { grid-template-columns: 1fr; gap: 0.25rem; }
+
+  .intro-text { font-size: 1.15rem; }
+}
