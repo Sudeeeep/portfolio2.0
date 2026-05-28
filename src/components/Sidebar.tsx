@@ -47,32 +47,30 @@ export default function Sidebar() {
 
   return (
     <aside className="
-      /* mobile: static top bar */
       w-full border-b border-black/10 px-6 py-5 flex flex-col gap-0 bg-bg overflow-y-visible
-      /* desktop: fixed left sidebar */
-      md:w-[260px] md:shrink-0 md:fixed md:top-0 md:left-0 md:bottom-0
+      md:w-[320px] md:shrink-0 md:fixed md:top-0 md:left-0 md:bottom-0
       md:border-b-0 md:border-r md:border-black/10
-      md:px-8 md:py-10 md:flex-col md:overflow-y-auto
+      md:px-9 md:py-10 md:flex-col md:overflow-y-auto
     ">
       {/* Identity */}
       <div className="mb-5 md:mb-0">
         <div
-          className="w-[42px] h-[42px] rounded-full bg-fg mb-5 flex items-center justify-center
-                     text-bg font-mono text-[0.7rem] select-none"
+          className="w-[46px] h-[46px] rounded-full bg-fg mb-6 flex items-center justify-center
+                     text-bg font-mono text-[0.75rem] select-none"
           aria-hidden="true"
         >
           SN
         </div>
-        <p className="font-mono text-[0.9rem] tracking-[-0.01em] mb-1">Sudeep Nair</p>
-        <p className="font-mono text-[0.75rem] text-muted mb-0 md:mb-6">Software engineer</p>
+        <p className="font-mono text-[1.05rem] tracking-[-0.01em] mb-1">Sudeep Nair</p>
+        <p className="font-mono text-[0.875rem] text-muted mb-0 md:mb-7">Software engineer</p>
       </div>
 
-      {/* Stack — hidden on mobile to keep top bar compact */}
-      <div className="hidden md:block mb-8">
-        <p className="font-mono text-[0.6rem] uppercase tracking-[0.08em] text-muted/50 mb-2">
+      {/* Stack — hidden on mobile */}
+      <div className="hidden md:block mb-9">
+        <p className="font-mono text-[0.7rem] uppercase tracking-[0.08em] text-muted/50 mb-2">
           stack
         </p>
-        <p className="font-mono text-[0.7rem] text-muted leading-[1.8]">
+        <p className="font-mono text-[0.85rem] text-muted leading-[1.8]">
           Java · Spring Boot<br />
           Python · FastAPI<br />
           Docker · K8s · AWS<br />
@@ -81,7 +79,7 @@ export default function Sidebar() {
       </div>
 
       {/* Nav */}
-      <nav aria-label="Main navigation" className="mt-4 md:mt-0 md:mb-8">
+      <nav aria-label="Main navigation" className="mt-4 md:mt-0 md:mb-9">
         <ul className="flex flex-row flex-wrap gap-x-1 md:flex-col md:gap-0">
           {NAV_ITEMS.map(({ id, label }) => {
             const isActive = activeId === id
@@ -93,14 +91,13 @@ export default function Sidebar() {
                   aria-current={isActive ? 'page' : undefined}
                   className={`
                     group inline-flex md:flex items-center
-                    px-2 md:px-0 py-[0.4rem]
-                    font-mono text-[0.75rem] tracking-[0.03em] no-underline
+                    px-2 md:px-0 py-[0.45rem]
+                    font-mono text-[0.9rem] tracking-[0.02em] no-underline
                     rounded-sm transition-colors duration-150
                     focus-visible:outline-2 focus-visible:outline-fg focus-visible:outline-offset-2
                     ${isActive ? 'text-fg' : 'text-muted hover:text-fg'}
                   `}
                 >
-                  {/* Arrow indicator — desktop only */}
                   <span
                     className={`
                       hidden md:inline-block mr-0 transition-[opacity,margin] duration-150
@@ -120,10 +117,10 @@ export default function Sidebar() {
       </nav>
 
       {/* Divider — desktop only */}
-      <div className="hidden md:block h-px bg-black/10 mb-8" role="separator" />
+      <div className="hidden md:block h-px bg-black/10 mb-9" role="separator" />
 
       {/* Status */}
-      <p className="hidden md:block font-mono text-[0.7rem] text-muted leading-[1.6] mb-8">
+      <p className="hidden md:block font-mono text-[0.8rem] text-muted leading-[1.7] mb-9">
         <span
           className="inline-block w-[7px] h-[7px] rounded-full bg-green-500 mr-[0.4rem]
                      align-middle shadow-[0_0_0_2px_rgba(76,175,80,0.2)]"
@@ -135,14 +132,14 @@ export default function Sidebar() {
       </p>
 
       {/* Socials */}
-      <div className="flex gap-3 mt-3 md:mt-0">
+      <div className="flex gap-4 mt-3 md:mt-0">
         {SOCIALS.map(({ label, href }) => (
           <a
-            target='_blank'
             key={label}
             href={href}
+            target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-[0.7rem] text-muted no-underline
+            className="font-mono text-[0.8rem] text-muted no-underline
                        transition-colors duration-150 hover:text-fg
                        rounded-sm focus-visible:outline-2 focus-visible:outline-fg focus-visible:outline-offset-2"
           >

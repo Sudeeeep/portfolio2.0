@@ -23,7 +23,7 @@ export default function Home() {
     <div className="flex min-h-screen">
       <Sidebar />
 
-      <main className="ml-0 md:ml-[260px] flex-1 px-6 py-16 md:px-16 md:py-20 max-w-[780px]">
+      <main className="ml-0 md:ml-[320px] flex-1 px-6 py-16 md:px-16 md:py-20 max-w-[780px]">
 
         {/* Intro */}
         <section id="intro" className="mb-24">
