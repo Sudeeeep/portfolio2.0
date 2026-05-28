@@ -50,35 +50,29 @@ export default function Home() {
             {PROJECTS.map((p) => (
               <article
                 key={p.name}
-                className="grid grid-cols-[1fr_auto] items-start py-7
-                           border-b border-black/10 first:border-t
+                className="py-7 border-b border-black/10 first:border-t
                            transition-[padding] duration-200 hover:pl-2 cursor-pointer"
               >
-                <div>
-                  <p className="text-[1.05rem] font-normal mb-[0.35rem] tracking-[-0.01em]">
-                    {p.name}
-                  </p>
-                  <p className="text-[0.82rem] text-muted max-w-[46ch] leading-[1.55]">
-                    {p.desc}
-                  </p>
-                  {p.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-[0.35rem] mt-[0.65rem]">
-                      {p.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="font-mono text-[0.62rem] text-muted
-                                     bg-black/[0.04] border border-black/10
-                                     px-[0.4rem] py-[0.1rem] rounded-[2px] tracking-[0.02em]"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                </div>
-                <span className="font-mono text-[0.75rem] text-muted pt-[0.15rem]">
-                  {p.year}
-                </span>
+                <p className="text-[1.05rem] font-normal mb-[0.35rem] tracking-[-0.01em]">
+                  {p.name}
+                </p>
+                <p className="text-[0.82rem] text-muted max-w-[46ch] leading-[1.55]">
+                  {p.desc}
+                </p>
+                {p.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-[0.35rem] mt-[0.65rem]">
+                    {p.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="font-mono text-[0.62rem] text-muted
+                                   bg-black/4 border border-black/10
+                                   px-[0.4rem] py-[0.1rem] rounded-xs tracking-[0.02em]"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </article>
             ))}
           </div>
