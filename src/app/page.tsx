@@ -5,19 +5,16 @@ const PROJECTS = [
     name: 'Expense Tracker',
     desc: 'Microservices expense app with dedicated auth, tracking, and reporting services. JWT auth, event-driven alerts, Redis caching, cloud infra on AWS.',
     tags: ['java', 'spring-boot', 'kafka', 'postgresql', 'docker', 'kubernetes', 'aws-cdk', 'redis'],
-    year: '2025',
   },
   {
     name: 'DocTalk',
     desc: 'RAG-powered document assistant for natural language Q&A over uploaded PDFs. Semantic search with source citation highlighting; deployed on Render.',
     tags: ['python', 'fastapi', 'langchain', 'chromadb', 'openai', 'react', 'postgresql'],
-    year: '2025',
   },
   {
     name: 'Dotify',
-    desc: '[Description coming soon]',
-    tags: [],
-    year: '2025',
+    desc: 'Full-featured Spotify clone with OAuth login, playback, and search across artists, albums, playlists, and tracks via the Spotify API.',
+    tags: ['react', 'typescript', 'spotify-api', 'oauth'],
   },
 ]
 
