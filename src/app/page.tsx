@@ -149,8 +149,8 @@ export default function Home() {
           <div className="flex flex-col gap-2">
             {[
               { label: 'email', value: 'sudeepn15@gmail.com', href: 'mailto:sudeepn15@gmail.com' },
-              { label: 'github', value: 'github.com/sudeepnair', href: '#' },
-              { label: 'linkedin', value: 'linkedin.com/in/sudeepnair', href: '#' },
+              { label: 'github', value: 'github.com/Sudeeeep', href: 'https://github.com/Sudeeeep' },
+              { label: 'linkedin', value: 'linkedin.com/in/sudeep-nair', href: 'https://www.linkedin.com/in/sudeep-nair-1295a8201/' },
               { label: 'location', value: 'Dublin, Ireland', href: null },
             ].map(({ label, value, href }) => (
               <div key={label} className="flex items-center gap-4 font-mono text-[0.8rem]">

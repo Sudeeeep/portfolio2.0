@@ -10,8 +10,8 @@ const NAV_ITEMS = [
 ]
 
 const SOCIALS = [
-  { label: 'GitHub', href: '#' },
-  { label: 'LinkedIn', href: '#' },
+  { label: 'GitHub', href: 'https://github.com/Sudeeeep' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/sudeep-nair-1295a8201/' },
   { label: 'CV', href: '#' },
 ]
 
@@ -138,6 +138,7 @@ export default function Sidebar() {
       <div className="flex gap-3 mt-3 md:mt-0">
         {SOCIALS.map(({ label, href }) => (
           <a
+            target='_blank'
             key={label}
             href={href}
             rel="noopener noreferrer"
