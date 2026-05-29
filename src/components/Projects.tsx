@@ -1,8 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaGithub } from 'react-icons/fa'
+import { FaGithub, FaCode } from 'react-icons/fa'
 import { projects } from '@/data/portfolio'
+import { TECH_ICONS } from '@/data/icons'
 
 export default function Projects() {
   return (
@@ -55,15 +56,19 @@ export default function Projects() {
               <p className="text-text-secondary text-sm leading-relaxed flex-1">{p.desc}</p>
 
               <div className="flex flex-wrap gap-2 pt-2 border-t border-white/5">
-                {p.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="font-mono text-[0.65rem] text-accent-1/70 bg-accent-1/5
-                               border border-accent-1/20 px-2 py-0.5 rounded"
-                  >
-                    {tag}
-                  </span>
-                ))}
+                {p.tags.map((tag) => {
+                  const Icon = TECH_ICONS[tag] ?? FaCode
+                  return (
+                    <span
+                      key={tag}
+                      className="inline-flex items-center gap-1.5 font-mono text-[0.65rem] text-accent-1/70
+                                 bg-accent-1/5 border border-accent-1/20 px-2 py-0.5 rounded"
+                    >
+                      {Icon && <Icon size={11} />}
+                      {tag}
+                    </span>
+                  )
+                })}
               </div>
             </motion.article>
           ))}

@@ -1,7 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { FaCode } from 'react-icons/fa'
 import { skills } from '@/data/portfolio'
+import { TECH_ICONS } from '@/data/icons'
 
 const CATEGORIES = [
   { title: 'Languages', items: skills.languages },
@@ -10,6 +12,7 @@ const CATEGORIES = [
 ]
 
 function SkillCard({ name, delay }: { name: string; delay: number }) {
+  const Icon = TECH_ICONS[name] ?? FaCode
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -17,10 +20,11 @@ function SkillCard({ name, delay }: { name: string; delay: number }) {
       viewport={{ once: true }}
       transition={{ delay, duration: 0.4 }}
       whileHover={{ y: -4, scale: 1.03 }}
-      className="bg-secondary-bg px-5 py-3 rounded border border-white/5
+      className="flex items-center gap-3 bg-secondary-bg px-5 py-3 rounded border border-white/5
                  hover:border-accent-2/50 hover:shadow-[0_4px_20px_rgba(233,69,96,0.12)]
                  transition-all duration-300 cursor-default"
     >
+      {Icon && <Icon className="text-accent-1 shrink-0" size={20} />}
       <span className="text-text-primary text-sm font-medium">{name}</span>
     </motion.div>
   )
