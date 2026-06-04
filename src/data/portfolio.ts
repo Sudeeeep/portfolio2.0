@@ -6,7 +6,7 @@ export const personalInfo = {
   email: 'sudeepn15@gmail.com',
   github: 'https://github.com/Sudeeeep',
   linkedin: 'https://www.linkedin.com/in/sudeep-nair-1295a8201/',
-  cv: '#',
+  cv: 'https://drive.google.com/file/d/1XBg7p4-lqT-9K97SToAH5YmmcTMiOB4j/view?usp=sharing',
 }
 
 export const typewriterRoles = [
