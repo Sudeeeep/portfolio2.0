@@ -55,23 +55,27 @@ export const skills = {
 
 export const projects = [
   {
-    name: 'Expense Tracker',
-    desc: 'Microservices expense app with dedicated auth, tracking, and reporting services. JWT auth, event-driven alerts, Redis caching, cloud infra on AWS.',
-    tags: ['java', 'spring-boot', 'kafka', 'postgresql', 'docker', 'kubernetes', 'aws-cdk', 'redis'],
-    github: '#',
-  },
-  {
     name: 'DocTalk',
     desc: 'RAG-powered document assistant for natural language Q&A over uploaded PDFs. Semantic search with source citation highlighting; deployed on Render.',
     tags: ['python', 'fastapi', 'langchain', 'chromadb', 'openai', 'react', 'postgresql'],
-    github: '#',
+    github: 'https://github.com/Sudeeeep/docTalk',
+    link: 'https://doctalk-frontend-0eqm.onrender.com/'
   },
   {
     name: 'Dotify',
     desc: 'Full-featured Spotify clone with OAuth login, playback, and search across artists, albums, playlists, and tracks via the Spotify API.',
     tags: ['react', 'typescript', 'spotify-api', 'oauth'],
-    github: '#',
+    github: 'https://github.com/Sudeeeep/Dotify',
+    link: 'https://dotify-react.vercel.app/'
   },
+  {
+    name: 'Expense Tracker',
+    desc: 'Microservices expense app with dedicated auth, tracking, and reporting services. JWT auth, event-driven alerts, Redis caching, cloud infra on AWS.',
+    tags: ['java', 'spring-boot', 'kafka', 'postgresql', 'docker', 'kubernetes', 'aws-cdk', 'redis'],
+    github: '#',
+    link: '#'
+  },
+
 ]
 
 export const experience = [

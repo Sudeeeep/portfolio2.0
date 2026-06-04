@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaGithub, FaCode } from 'react-icons/fa'
+import { FaGithub, FaCode, FaExternalLinkAlt } from 'react-icons/fa'
 import { projects } from '@/data/portfolio'
 import { TECH_ICONS } from '@/data/icons'
 
@@ -42,15 +42,27 @@ export default function Projects() {
             >
               <div className="flex items-start justify-between">
                 <h3 className="text-lg font-semibold text-text-primary">{p.name}</h3>
-                <a
-                  href={p.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-text-secondary hover:text-accent-1 transition-colors"
-                  aria-label={`${p.name} GitHub`}
-                >
-                  <FaGithub size={18} />
-                </a>
+                <div className="flex items-center gap-3">
+                  <a
+                    href={p.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-text-secondary hover:text-accent-1 transition-colors"
+                    aria-label={`${p.name} GitHub`}
+                  >
+                    <FaGithub size={18} />
+                  </a>
+                  <a
+                    href={p.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-text-secondary hover:text-accent-1 transition-colors"
+                    aria-label={`${p.name} live demo`}
+                  >
+                    <FaExternalLinkAlt size={15} />
+                  </a>
+                </div>
+
               </div>
 
               <p className="text-text-secondary text-sm leading-relaxed flex-1">{p.desc}</p>
