@@ -1,3 +1,6 @@
+// TODO: replace with the real deployed URL — used for OG tags, sitemap, robots, and JSON-LD
+export const siteUrl = 'https://sudeep-nair.vercel.app'
+
 export const personalInfo = {
   name: 'Sudeep Nair',
   role: 'Software Engineer',

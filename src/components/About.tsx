@@ -13,7 +13,7 @@ export default function About() {
           viewport={{ once: true }}
           className="font-mono text-accent-1 text-sm uppercase tracking-[0.15em] mb-3"
         >
-          // about
+          {'// about'}
         </motion.p>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

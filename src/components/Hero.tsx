@@ -6,35 +6,34 @@ import { FaGithub, FaLinkedin, FaChevronDown } from 'react-icons/fa'
 import { personalInfo, typewriterRoles } from '@/data/portfolio'
 
 function Typewriter({ texts, speed = 100, pause = 1800 }: { texts: string[]; speed?: number; pause?: number }) {
-  const [displayed, setDisplayed] = useState('')
   const [index, setIndex] = useState(0)
   const [charIndex, setCharIndex] = useState(0)
   const [deleting, setDeleting] = useState(false)
+  const current = texts[index]
 
   useEffect(() => {
-    const current = texts[index]
-
-    if (!deleting && charIndex === current.length + 1) {
-      setTimeout(() => setDeleting(true), pause)
-      return
+    if (!deleting && charIndex === current.length) {
+      const timeout = setTimeout(() => setDeleting(true), pause)
+      return () => clearTimeout(timeout)
     }
     if (deleting && charIndex === 0) {
-      setDeleting(false)
-      setIndex((i) => (i + 1) % texts.length)
-      return
+      const timeout = setTimeout(() => {
+        setDeleting(false)
+        setIndex((i) => (i + 1) % texts.length)
+      }, speed)
+      return () => clearTimeout(timeout)
     }
 
-    const timeout = setTimeout(() => {
-      setCharIndex((c) => c + (deleting ? -1 : 1))
-      setDisplayed(current.substring(0, charIndex))
-    }, deleting ? speed / 2 : speed)
-
+    const timeout = setTimeout(
+      () => setCharIndex((c) => c + (deleting ? -1 : 1)),
+      deleting ? speed / 2 : speed
+    )
     return () => clearTimeout(timeout)
-  }, [charIndex, index, deleting, texts, speed, pause])
+  }, [charIndex, deleting, current, texts.length, speed, pause])
 
   return (
     <span className="text-accent-2">
-      {displayed}
+      {current.substring(0, charIndex)}
       <span className="animate-pulse">|</span>
     </span>
   )

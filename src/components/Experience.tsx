@@ -3,6 +3,16 @@
 import { motion } from 'framer-motion'
 import { experience, education } from '@/data/portfolio'
 
+function renderBullet(text: string) {
+  return text.split(/(~[\d,]+%?)/g).map((part, i) =>
+    /^~[\d,]+%?$/.test(part) ? (
+      <strong key={i} className="font-mono text-text-primary">{part}</strong>
+    ) : (
+      part
+    )
+  )
+}
+
 function TimelineItem({
   period,
   title,
@@ -38,7 +48,7 @@ function TimelineItem({
           {bullets.map((b, i) => (
             <li key={i} className="text-text-secondary text-sm leading-relaxed flex gap-2">
               <span className="text-accent-1 mt-1 shrink-0">▹</span>
-              <span dangerouslySetInnerHTML={{ __html: b.replace(/~[\d,]+[%\w\s]+/g, (m) => `<strong class="font-mono text-text-primary">${m}</strong>`) }} />
+              <span>{renderBullet(b)}</span>
             </li>
           ))}
         </ul>
@@ -57,7 +67,7 @@ export default function Experience() {
           viewport={{ once: true }}
           className="font-mono text-accent-1 text-sm uppercase tracking-[0.15em] mb-3"
         >
-          // experience
+          {'// experience'}
         </motion.p>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -89,7 +99,7 @@ export default function Experience() {
           viewport={{ once: true }}
           className="font-mono text-accent-1 text-sm uppercase tracking-[0.15em] mb-3 mt-20"
         >
-          // education
+          {'// education'}
         </motion.p>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

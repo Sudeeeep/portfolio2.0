@@ -3,10 +3,12 @@
 import { motion } from 'framer-motion'
 import { personalInfo } from '@/data/portfolio'
 
+const displayUrl = (url: string) => url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')
+
 const CONTACT_ROWS = [
   { label: 'email', value: personalInfo.email, href: `mailto:${personalInfo.email}` },
-  { label: 'github', value: 'github.com/Sudeeeep', href: personalInfo.github },
-  { label: 'linkedin', value: 'linkedin.com/in/sudeep-nair', href: personalInfo.linkedin },
+  { label: 'github', value: displayUrl(personalInfo.github), href: personalInfo.github },
+  { label: 'linkedin', value: displayUrl(personalInfo.linkedin), href: personalInfo.linkedin },
   { label: 'location', value: personalInfo.location, href: null },
 ]
 
@@ -20,7 +22,7 @@ export default function Contact() {
           viewport={{ once: true }}
           className="font-mono text-accent-1 text-sm uppercase tracking-[0.15em] mb-3"
         >
-          // contact
+          {'// contact'}
         </motion.p>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

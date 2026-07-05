@@ -16,6 +16,12 @@ html {
   scroll-padding-top: 80px;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   background-color: #1a1a2e;
   color: #e0e0e0;
