@@ -3,6 +3,7 @@ import { personalInfo } from '@/data/portfolio'
 const NAV_LINKS = [
   { label: 'experience', href: '#experience' },
   { label: 'work', href: '#work' },
+  { label: 'ask', href: '#ask' },
   { label: 'contact', href: '#contact' },
 ]
 
