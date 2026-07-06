@@ -1,91 +1,61 @@
-'use client'
-
-import { motion } from 'framer-motion'
-import { FaGithub, FaCode, FaExternalLinkAlt } from 'react-icons/fa'
+import Section from '@/components/Section'
 import { projects } from '@/data/portfolio'
-import { TECH_ICONS } from '@/data/icons'
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-28 bg-secondary-bg/30 relative">
-      <div className="max-w-5xl mx-auto px-6">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="font-mono text-accent-1 text-sm uppercase tracking-[0.15em] mb-3"
-        >
-          {'// projects'}
-        </motion.p>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="text-3xl sm:text-4xl font-bold text-text-primary mb-16"
-        >
-          Things I&apos;ve Built
-        </motion.h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((p, i) => (
-            <motion.article
-              key={p.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              whileHover={{ y: -6 }}
-              className="bg-secondary-bg rounded-lg p-6 border border-white/5
-                         hover:border-accent-1/30 hover:shadow-[0_8px_30px_rgba(0,245,195,0.08)]
-                         transition-all duration-300 flex flex-col gap-4"
-            >
-              <div className="flex items-start justify-between">
-                <h3 className="text-lg font-semibold text-text-primary">{p.name}</h3>
-                <div className="flex items-center gap-3">
+    <Section id="work" label="selected work" title="Things I’ve built">
+      <div className="flex flex-col gap-12">
+        {projects.map((p) => (
+          <article key={p.name}>
+            <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-3">
+              <h3 className="font-semibold">
+                {p.name}<span className="text-muted font-normal">: {p.tagline}</span>
+              </h3>
+              <span className="flex items-center gap-4 font-mono text-xs">
+                {p.github && (
                   <a
                     href={p.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-text-secondary hover:text-accent-1 transition-colors"
-                    aria-label={`${p.name} GitHub`}
+                    className="text-accent hover:underline underline-offset-4"
                   >
-                    <FaGithub size={18} />
+                    code ↗
                   </a>
+                )}
+                {p.link && (
                   <a
                     href={p.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-text-secondary hover:text-accent-1 transition-colors"
-                    aria-label={`${p.name} live demo`}
+                    className="text-accent hover:underline underline-offset-4"
                   >
-                    <FaExternalLinkAlt size={15} />
+                    live ↗
                   </a>
-                </div>
+                )}
+              </span>
+            </div>
 
-              </div>
+            <div className="flex flex-wrap gap-2 mb-4">
+              {p.stack.map((tech) => (
+                <span
+                  key={tech}
+                  className="font-mono text-xs text-accent bg-accent/10 border border-accent/20 px-2 py-0.5 rounded"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
 
-              <p className="text-text-secondary text-sm leading-relaxed flex-1">{p.desc}</p>
-
-              <div className="flex flex-wrap gap-2 pt-2 border-t border-white/5">
-                {p.tags.map((tag) => {
-                  const Icon = TECH_ICONS[tag] ?? FaCode
-                  return (
-                    <span
-                      key={tag}
-                      className="inline-flex items-center gap-1.5 font-mono text-[0.65rem] text-accent-1/70
-                                 bg-accent-1/5 border border-accent-1/20 px-2 py-0.5 rounded"
-                    >
-                      {Icon && <Icon size={11} />}
-                      {tag}
-                    </span>
-                  )
-                })}
-              </div>
-            </motion.article>
-          ))}
-        </div>
+            <div className="flex flex-col gap-3">
+              {p.paragraphs.map((para, i) => (
+                <p key={i} className="text-muted text-sm leading-relaxed max-w-prose">
+                  {para}
+                </p>
+              ))}
+            </div>
+          </article>
+        ))}
       </div>
-    </section>
+    </Section>
   )
 }

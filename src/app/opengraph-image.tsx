@@ -16,20 +16,20 @@ export default function Image() {
           flexDirection: 'column',
           justifyContent: 'center',
           padding: 80,
-          background: '#1a1a2e',
+          background: '#0e1116',
         }}
       >
-        <div style={{ fontSize: 30, color: '#00f5c3', marginBottom: 28 }}>
+        <div style={{ fontSize: 30, color: '#2dd4bf', marginBottom: 28 }}>
           {'// portfolio'}
         </div>
-        <div style={{ fontSize: 88, fontWeight: 700, color: '#ffffff' }}>
+        <div style={{ fontSize: 88, fontWeight: 700, color: '#e6e9ef' }}>
           {personalInfo.name}
         </div>
-        <div style={{ fontSize: 42, color: '#a0a0a0', marginTop: 16 }}>
+        <div style={{ fontSize: 42, color: '#98a1b3', marginTop: 16 }}>
           {`${personalInfo.role} · ${personalInfo.location}`}
         </div>
-        <div style={{ fontSize: 30, color: '#e94560', marginTop: 48 }}>
-          backend systems · microservices · LLM-powered tools
+        <div style={{ fontSize: 30, color: '#2dd4bf', marginTop: 48 }}>
+          event-driven services · enterprise integration · LLM tools
         </div>
       </div>
     ),

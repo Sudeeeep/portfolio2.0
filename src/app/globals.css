@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-bg: #1a1a2e;
-  --color-secondary-bg: #0f3460;
-  --color-accent-1: #00f5c3;
-  --color-accent-2: #e94560;
-  --color-text-primary: #e0e0e0;
-  --color-text-secondary: #a0a0a0;
-  --font-sans: var(--font-jetbrains-mono);
+  --color-bg: #0e1116;
+  --color-surface: #151a21;
+  --color-ink: #e6e9ef;
+  --color-muted: #98a1b3;
+  --color-accent: #2dd4bf;
+  --color-edge: #232a35;
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 32px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -23,13 +23,46 @@ html {
 }
 
 body {
-  background-color: #1a1a2e;
-  color: #e0e0e0;
+  background-color: #0e1116;
+  color: #e6e9ef;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #0f3460; }
-::-webkit-scrollbar-thumb { background: #00f5c3; border-radius: 9999px; }
+::selection {
+  background: #2dd4bf;
+  color: #0e1116;
+}
 
-::selection { background: #00f5c3; color: #1a1a2e; }
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0e1116;
+}
+::-webkit-scrollbar-thumb {
+  background: #232a35;
+  border-radius: 9999px;
+}
+
+/* Scroll-driven section reveal — progressive enhancement, no JS.
+   Browsers without animation-timeline (or users with reduced motion)
+   simply see the content. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 50%;
+    }
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

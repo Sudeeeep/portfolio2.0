@@ -1,9 +1,17 @@
+import { personalInfo } from '@/data/portfolio'
+
 export default function Footer() {
   return (
-    <footer className="py-8 text-center font-mono text-text-secondary/50 text-xs border-t border-white/5">
-      <span className="bg-gradient-to-r from-accent-1 to-accent-2 bg-clip-text text-transparent font-bold">
-        &lt;Sudeep /&gt;
-      </span>
+    <footer className="py-10 mt-6 border-t border-edge font-mono text-xs text-muted/60 flex flex-wrap items-center justify-between gap-y-2">
+      <span>© {new Date().getFullYear()} {personalInfo.name}</span>
+      <a
+        href={personalInfo.sourceRepo}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-accent transition-colors"
+      >
+        view source ↗
+      </a>
     </footer>
   )
 }

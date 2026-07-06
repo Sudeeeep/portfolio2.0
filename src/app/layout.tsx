@@ -1,18 +1,22 @@
 import type { Metadata } from 'next'
-import { JetBrains_Mono } from 'next/font/google'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
-import MotionProvider from '@/components/MotionProvider'
 import { personalInfo, siteUrl } from '@/data/portfolio'
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+})
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '500', '700'],
   variable: '--font-jetbrains-mono',
 })
 
 const title = 'Sudeep Nair — Software Engineer'
 const description =
-  'Software engineer based in Dublin. Backend systems, APIs, and the occasional full-stack project.'
+  'Software engineer in Dublin building event-driven backends, APIs, and LLM-powered tools.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -35,10 +39,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={jetbrainsMono.variable}>
-      <body className="bg-primary-bg text-text-primary font-sans antialiased">
-        <MotionProvider>{children}</MotionProvider>
-      </body>
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+      <body className="bg-bg text-ink font-sans antialiased">{children}</body>
     </html>
   )
 }
